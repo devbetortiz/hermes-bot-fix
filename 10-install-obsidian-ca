@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+readonly source_cert=/opt/data/obsidian-local-rest-api.crt
+readonly target_cert=/usr/local/share/ca-certificates/obsidian-local-rest-api.crt
+
+if [ ! -f "$source_cert" ]; then
+    echo "Obsidian CA not found at $source_cert; continuing without it." >&2
+    exit 0
+fi
+
+if [ ! -r "$source_cert" ]; then
+    echo "Obsidian CA exists but is not readable: $source_cert" >&2
+    exit 1
+fi
+
+install -D -m 0644 "$source_cert" "$target_cert"
+update-ca-certificates
