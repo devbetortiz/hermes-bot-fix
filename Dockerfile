@@ -9,4 +9,4 @@ RUN /opt/hermes/.venv/bin/python /tmp/patch_bot_mode_dm.py && rm /tmp/patch_bot_
 COPY 10-install-obsidian-ca /etc/cont-init.d/10-install-obsidian-ca
 RUN chmod 0755 /etc/cont-init.d/10-install-obsidian-ca
 
-USER hermes
+USER root
