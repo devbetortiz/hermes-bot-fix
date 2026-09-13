@@ -1,4 +1,4 @@
-FROM nousresearch/hermes-agent:v2026.9.7
+FROM nousresearch/hermes-agent:v2026.9.11
 
 USER root
 COPY patch_bot_mode_dm.py /tmp/patch_bot_mode_dm.py
